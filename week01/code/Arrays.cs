@@ -1,3 +1,6 @@
+
+using System.Collections.Generic;
+
 public static class Arrays
 {
     /// <summary>
@@ -9,11 +12,21 @@ public static class Arrays
     public static double[] MultiplesOf(double number, int length)
     {
         // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Step 1: Create an array with the specified length.
+        // Step 2: Use a loop to go through each position in the array.
+        // Step 3: Multiply the given number by the current position plus one.
+        // Step 4: Store each calculated multiple in the array.
+        // Step 5: Return the completed array.
+
+        double[] multiples = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+
+        return multiples;
     }
 
     /// <summary>
@@ -26,8 +39,25 @@ public static class Arrays
     public static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+
+        // Step 1: Find the total number of elements in the list.
+        // Step 2: Calculate the starting index of the elements
+        // that need to move to the beginning.
+        // Step 3: Copy the last 'amount' elements into a new list.
+        // Step 4: Copy the remaining elements into another list.
+        // Step 5: Clear the original list.
+        // Step 6: Add the last elements to the beginning.
+        // Step 7: Add the remaining elements after them.
+
+        int count = data.Count;
+        int startIndex = count - amount;
+
+        List<int> lastElements = data.GetRange(startIndex, amount);
+        List<int> firstElements = data.GetRange(0, startIndex);
+
+        data.Clear();
+
+        data.AddRange(lastElements);
+        data.AddRange(firstElements);
     }
 }
